@@ -1,18 +1,20 @@
 import "./Header.css";
 
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <header id="site-header">
       <nav className="navbar">
         <section className="navbar-dashboard">
           <div className="first-bar">
-            <a href="#">Dashboard</a>
+            <Link to="/">Dashboard</Link>
             <a className="button" href="#">
               My Pets
             </a>
-            <a className="button" href="#">
+            <Link to="/add-pet" className="button">
               Add Pet
-            </a>
+            </Link>
           </div>
           <div className="second-bar">
             <ul>
@@ -28,14 +30,14 @@ const Header = () => {
         <section className="navbar-anonymous">
           <ul>
             <li>
-              <a href="#">
+              <Link to="/register">
                 <i className="fas fa-user-plus"></i> Register
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">
+              <Link to="/login">
                 <i className="fas fa-sign-in-alt"></i> Login
-              </a>
+              </Link>
             </li>
           </ul>
         </section>
