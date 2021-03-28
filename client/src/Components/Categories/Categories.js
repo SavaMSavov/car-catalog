@@ -14,7 +14,6 @@ class Categories extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
     carsServices.getAll().then((res) => this.setState({ cars: res }));
   }
 
