@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer id="site-footer">
-      <p>@PetMyPet</p>
+      <p>@LikeMyCar</p>
     </footer>
   );
 };

@@ -1,13 +1,13 @@
 body {
   padding: 0;
   margin: 0;
-  background-color: #eff4f4;
+  background-color: white;
   background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23bae6f2' fill-opacity='0.49' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
 .basic {
   background: linear-gradient(rgba(250, 248, 248, 0.2), rgba(25, 167, 173, 0.2)),
-    url(../src/Components/Home/We-need-to-talk-about-pets.jpg) no-repeat center;
+    url(../src/Components/Home/bmw_m5_f90-1920x1080.jpg) no-repeat center;
   background-size: cover;
   height: 85vh;
   position: relative;
@@ -59,7 +59,7 @@ li {
 }
 
 .img {
-  width: 15rem;
+  width: 30rem;
   position: relative;
   overflow: hidden;
   padding: 0rem;
@@ -81,22 +81,32 @@ img {
   padding-top: 100%;
 }
 
-.detailsOtherPet,
-.detailsMyPet,
-.deletePet,
-.otherPet,
-.myPet {
+.detailsOtherCar,
+.detailsMyCar,
+.deleteCar,
+.otherCar,
+.myCar {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.detailsMyPet > p:nth-child(2),
-.deletePet > p:nth-child(2),
-.otherPet > p:nth-child(2),
-.myPet > p:nth-child(2) {
+.detailsOtherCar .description {
+  width: 35rem;
+  text-align: center;
+}
+
+.detailsMyCar > p:nth-child(2),
+.deleteCar > p:nth-child(2),
+.otherCar > p:nth-child(2),
+.myCar > p:nth-child(2) {
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+.otherCar > p:nth-child(4) {
+  width: 30rem;
+  overflow: hidden;
 }
 
 .dashboard > nav > ul {
@@ -112,7 +122,7 @@ img {
 }
 
 .basic h1,
-.my-pets h1,
+.my-cars h1,
 .dashboard h1 {
   text-align: center;
   margin: 0rem;
@@ -123,33 +133,37 @@ h3 {
   margin-bottom: 0;
 }
 
-.pet-info {
+.car-info {
   padding-bottom: 1rem;
 }
 
-.deletePet > form,
-.detailsMyPet > form {
+.car-info a {
+  margin: 10px;
+}
+
+.deleteCar > form,
+.detailsMyCar > form {
   display: flex;
   flex-direction: column;
   padding-bottom: 1rem;
 }
 
-.my-pets .my-pets-list,
-.dashboard .other-pets-list {
+.my-cars .my-cars-list,
+.dashboard .other-cars-list {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.detailsMyPet textarea,
-.my-pets textarea {
+.detailsMyCar textarea,
+.my-cars textarea {
   margin-bottom: 2rem;
 }
 
 footer {
   margin-top: auto;
   text-align: center;
-  background: #234465;
+  background: #3f494e;
 }
 
 footer p {

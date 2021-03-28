@@ -1,16 +1,16 @@
 import { Component } from "react";
 import "../Forms.css";
-class AddPet extends Component {
+class AddCar extends Component {
   render() {
     return (
       <section className="create">
         <form action="#" method="post">
           <fieldset>
-            <legend>Add new Pet</legend>
+            <legend>Add new Car</legend>
             <p className="field">
-              <label htmlFor="name">Name</label>
+              <label htmlFor="model">Model</label>
               <span className="input">
-                <input type="text" name="name" id="name" placeholder="Name" />
+                <input type="text" name="model" id="model" placeholder="Model " />
                 <span className="actions"></span>
               </span>
             </p>
@@ -44,10 +44,10 @@ class AddPet extends Component {
               <label htmlFor="category">Category</label>
               <span className="input">
                 <select type="text" name="category">
-                  <option>Cat</option>
-                  <option>Dog</option>
-                  <option>Parrot</option>
-                  <option>Reptile</option>
+                  <option>3-Series</option>
+                  <option>5-Series</option>
+                  <option>6-Series</option>
+                  <option>7-Series</option>
                   <option>Other</option>
                 </select>
                 <span className="actions"></span>
@@ -66,4 +66,4 @@ class AddPet extends Component {
   }
 }
 
-export default AddPet;
+export default AddCar;

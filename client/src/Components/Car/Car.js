@@ -1,21 +1,21 @@
 import { Link } from "react-router-dom";
 
-const Pet = ({ id, name, description, imageURL, category, likes }) => {
+const Car = ({ id, model, description, imageURL, category, likes }) => {
   return (
-    <li className="otherPet">
-      <h3>Name: {name}</h3>
+    <li className="otherCar">
+      <h3>Model: {model}</h3>
       <p>Category: {category}</p>
       <p className="img">
         <img src={imageURL} />
       </p>
       <p className="description">{description}</p>
-      <div className="pet-info">
+      <div className="car-info">
         <Link to="#">
           <button className="button">
-            <i className="fas fa-heart"></i> Pet
+            <i className="fas fa-heart"></i> Like
           </button>
         </Link>
-        <Link to={`/pets/details/${id}`}>
+        <Link to={`/cars/details/${id}`}>
           <button className="button">Details</button>
         </Link>
         <i className="fas fa-heart"></i> <span> {likes}</span>
@@ -24,4 +24,4 @@ const Pet = ({ id, name, description, imageURL, category, likes }) => {
   );
 };
 
-export default Pet;
+export default Car;

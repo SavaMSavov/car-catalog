@@ -4,13 +4,13 @@ import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 
 import Categories from "./Components/Categories/Categories";
-import PetDetails from "./Components/PetDetails/PetDetails";
 
 import "./App.css";
 import Login from "./Components/Forms/Login/Login";
 import Register from "./Components/Forms/Register/Register";
-import AddPet from "./Components/Forms/AddPet/AddPet";
+import AddCar from "./Components/Forms/AddCar/AddCar";
 import Home from "./Components/Home/Home";
+import CarDetails from "./Components/CarDetails/CarDetails";
 
 function App() {
   return (
@@ -20,10 +20,10 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/categories" exact component={Categories} />
         <Route path="/categories/:category" component={Categories} />
-        <Route path="/pets/details/:petId" component={PetDetails} />
+        <Route path="/cars/details/:carId" component={CarDetails} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/add-pet" component={AddPet} />
+        <Route path="/add-car" component={AddCar} />
       </Switch>
       <Footer />
     </div>

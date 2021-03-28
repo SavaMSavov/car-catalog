@@ -8,16 +8,16 @@ const CategoryNavigation = () => {
           <NavLink to="/categories/all">All</NavLink>
         </li>
         <li>
-          <NavLink to="/categories/Cat">Cats</NavLink>
+          <NavLink to="/categories/3-Series">3 Series</NavLink>
         </li>
         <li>
-          <NavLink to="/categories/Dog">Dogs</NavLink>
+          <NavLink to="/categories/5-Series">5 Series</NavLink>
         </li>
         <li>
-          <NavLink to="/categories/Parrot">Parrots</NavLink>
+          <NavLink to="/categories/6-Series">6 Series</NavLink>
         </li>
         <li>
-          <NavLink to="/categories/Reptile">Reptiles</NavLink>
+          <NavLink to="/categories/7-Series">7 Series</NavLink>
         </li>
         <li>
           <NavLink to="/categories/Other">Other</NavLink>

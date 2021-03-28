@@ -10,10 +10,10 @@ const Header = () => {
           <div className="first-bar">
             <Link to="/">Dashboard</Link>
             <a className="button" href="#">
-              My Pets
+              My Cars
             </a>
-            <Link to="/add-pet" className="button">
-              Add Pet
+            <Link to="/add-car" className="button">
+              Add Car
             </Link>
           </div>
           <div className="second-bar">

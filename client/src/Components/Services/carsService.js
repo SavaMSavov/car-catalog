@@ -1,16 +1,16 @@
-const url = "http://localhost:5000/pets";
+const url = "http://localhost:5000/cars";
 
 export const getAll = (category = "") => {
-  let petsUrl =
+  let carURL =
     url + (category && category != "all" ? `?category=${category}` : "");
 
-  return fetch(petsUrl)
+  return fetch(carURL)
     .then((res) => res.json())
     .catch((error) => console.log(error));
 };
 
-export const getOne = (petId) => {
-  return fetch(`${url}/${petId}`)
+export const getOne = (carId) => {
+  return fetch(`${url}/${carId}`)
     .then((res) => res.json())
     .catch((error) => console.log(error));
 };

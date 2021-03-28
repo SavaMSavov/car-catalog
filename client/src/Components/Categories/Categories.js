@@ -1,6 +1,6 @@
 import CategoryNavigation from "./CategoryNavigation/CategoryNavigation";
-import Pet from "../Pet/Pet";
-import * as petsServices from "../Services/petsService";
+import Car from "../Car/Car";
+import * as carsServices from "../Services/carsService";
 import { Component } from "react";
 
 class Categories extends Component {
@@ -8,14 +8,14 @@ class Categories extends Component {
     super(props);
 
     this.state = {
-      pets: [],
+      cars: [],
       currentCategory: "all",
     };
   }
 
   componentDidMount() {
     console.log(this.props);
-    petsServices.getAll().then((res) => this.setState({ pets: res }));
+    carsServices.getAll().then((res) => this.setState({ cars: res }));
   }
 
   componentDidUpdate(prevProps) {
@@ -25,20 +25,20 @@ class Categories extends Component {
       return;
     }
 
-    petsServices.getAll(category).then((res) => {
-      this.setState({ pets: res, currentCategory: category });
+    carsServices.getAll(category).then((res) => {
+      this.setState({ cars: res, currentCategory: category });
     });
   }
 
   render() {
     return (
       <section className="dashboard">
-        <h1>Dashboard</h1>
+        <h1> Models</h1>
         <CategoryNavigation />
 
-        <ul className="other-pets-list">
-          {this.state.pets.map((x) => (
-            <Pet key={x.id} {...x} />
+        <ul className="other-cars-list">
+          {this.state.cars.map((x) => (
+            <Car key={x.id} {...x} />
           ))}
         </ul>
       </section>
