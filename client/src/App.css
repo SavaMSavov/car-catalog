@@ -39,8 +39,9 @@ body {
   border-radius: 0.4rem;
   text-decoration: none;
   font-weight: bold;
-  background: cadetblue;
+  background: #6d7a8a;
   color: rgb(255, 255, 255);
+  text-shadow: 1px 1px black;
   border: none;
   font-size: 1rem;
 }
@@ -163,7 +164,7 @@ h3 {
 footer {
   margin-top: auto;
   text-align: center;
-  background: #3f494e;
+  background: #344649;
 }
 
 footer p {
