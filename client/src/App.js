@@ -10,20 +10,22 @@ import Login from "./Components/Forms/Login/Login";
 import Register from "./Components/Forms/Register/Register";
 import AddCar from "./Components/Forms/AddCar/AddCar";
 import Home from "./Components/Home/Home";
-import CarDetails from "./Components/CarDetails/CarDetails";
+import CarDetails from "./Components/Forms/CarDetails/CarDetails";
+import EditCarDetails from "./Components/Forms/EditCarDetails/EditCarDetails";
 
 function App() {
   return (
     <div className="container">
       <Header />
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/categories" exact component={Categories} />
+        <Route path="/home" exact component={Home} />
+        <Route path="/" exact component={Categories} />
         <Route path="/categories/:category" component={Categories} />
-        <Route path="/cars/details/:carId" component={CarDetails} />
+        <Route path="/cars/details/:carId" exact component={CarDetails} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/add-car" component={AddCar} />
+        <Route path="/cars/details/:carId/edit" component={EditCarDetails} />;
       </Switch>
       <Footer />
     </div>
