@@ -1,10 +1,13 @@
+header {
+  box-shadow: 0px 7px 21px -3px rgba(0, 0, 0, 0.75);
+}
 nav.navbar {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   align-self: center;
   letter-spacing: 0.05rem;
-  background: #3f494e;
+  background: #344649;
   padding: 0.8rem 1rem;
   color: white;
 }
@@ -40,14 +43,16 @@ nav.navbar ul li a {
   border-radius: 0.4rem;
   text-decoration: none;
   font-weight: bold;
-  background: cadetblue;
+  background: #6d7a8a;
   color: rgb(255, 255, 255);
+  text-shadow: 1px 1px black;
 }
 .button:hover,
 nav.navbar ul li a:hover,
 nav.navbar ul li:hover > a {
   background: rgb(248, 215, 107);
   color: rgb(0, 0, 0);
+  text-shadow: none;
   font-weight: bold;
 }
 
