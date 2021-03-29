@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as carsService from "../../Services/carsService";
 
+import { isLoggedin } from "../../../auth";
+
 const CarDetails = ({ match }) => {
   let [car, setCar] = useState({});
 
@@ -31,14 +33,16 @@ const CarDetails = ({ match }) => {
         <img src={car.imageURL} />
       </p>
       <p className="description">{car.description}</p>{" "}
-      <div className="car-info">
-        <Link to={`/cars/details/${car.id}/edit`}>
-          <button className="button">Edit</button>
-        </Link>
-        <Link to="#">
-          <button className="button">Delete</button>
-        </Link>
-      </div>
+      {isLoggedin() ? (
+        <div className="car-info">
+          <Link to={`/cars/details/${car.id}/edit`}>
+            <button className="button">Edit</button>
+          </Link>
+          <Link to="#">
+            <button className="button">Delete</button>
+          </Link>
+        </div>
+      ) : null}
     </section>
   );
 };

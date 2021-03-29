@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
@@ -12,20 +12,30 @@ import AddCar from "./Components/Forms/AddCar/AddCar";
 import Home from "./Components/Home/Home";
 import CarDetails from "./Components/Forms/CarDetails/CarDetails";
 import EditCarDetails from "./Components/Forms/EditCarDetails/EditCarDetails";
+import PrivateRoute from "./PrivateRoute";
 
 function App() {
   return (
     <div className="container">
       <Header />
       <Switch>
+        <PrivateRoute path="/" exact component={Categories} />
+        <PrivateRoute path="/categories/:category" component={Categories} />
+        <PrivateRoute
+          path="/cars/details/:carId"
+          exact
+          component={CarDetails}
+        />
+        <PrivateRoute path="/add-car" component={AddCar} />
+        <PrivateRoute
+          path="/cars/details/:carId/edit"
+          component={EditCarDetails}
+        />
+        
         <Route path="/home" exact component={Home} />
-        <Route path="/" exact component={Categories} />
-        <Route path="/categories/:category" component={Categories} />
-        <Route path="/cars/details/:carId" exact component={CarDetails} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/add-car" component={AddCar} />
-        <Route path="/cars/details/:carId/edit" component={EditCarDetails} />;
+        <Redirect to="/home" />
       </Switch>
       <Footer />
     </div>
