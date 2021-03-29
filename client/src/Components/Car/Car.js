@@ -5,9 +5,9 @@ const Car = ({ id, model, description, imageURL, category, likes }) => {
     <li className="otherCar">
       <h3>Model: {model}</h3>
       <p>Category: {category}</p>
-      <p className="img">
-        <img src={imageURL} />
-      </p>
+
+      <img src={imageURL} />
+
       <p className="description">{description}</p>
       <div className="car-info">
         <Link to={`/cars/details/${id}`}>

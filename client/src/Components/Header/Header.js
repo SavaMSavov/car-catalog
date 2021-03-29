@@ -22,9 +22,9 @@ const Header = () => {
               <ul>
                 <li>Welcome, Pesho!</li>
                 <li>
-                  <a href="#">
+                  <Link to="/Login">
                     <i className="fas fa-sign-out-alt"></i> Logout
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
