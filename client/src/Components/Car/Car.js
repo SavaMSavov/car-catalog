@@ -10,11 +10,6 @@ const Car = ({ id, model, description, imageURL, category, likes }) => {
       </p>
       <p className="description">{description}</p>
       <div className="car-info">
-        <Link to="#">
-          <button className="button">
-            <i className="fas fa-heart"></i> Like
-          </button>
-        </Link>
         <Link to={`/cars/details/${id}`}>
           <button className="button">Details</button>
         </Link>
