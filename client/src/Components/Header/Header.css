@@ -54,7 +54,8 @@ nav.navbar ul li a {
 .button:hover,
 nav.navbar ul li a:hover,
 nav.navbar ul li:hover > a {
-  background-color: #4095c6;
+  background-color: #21506b;
+  cursor: pointer;
 }
 
 .dashboard nav {
