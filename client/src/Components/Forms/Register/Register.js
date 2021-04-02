@@ -12,6 +12,9 @@ const Register = ({ history }) => {
       .then((userCredential) => {
         console.log("Register");
         history.push("/");
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 

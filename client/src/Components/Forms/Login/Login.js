@@ -13,6 +13,9 @@ const Login = ({ history }) => {
       .signInWithEmailAndPassword(username, password)
       .then((userCredential) => {
         history.push("/");
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 

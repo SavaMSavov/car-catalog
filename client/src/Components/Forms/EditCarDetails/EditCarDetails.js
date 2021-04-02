@@ -18,10 +18,15 @@ const EditCarDetails = ({ match, history }) => {
     let carId = match.params.carId;
     let updatedCar = { ...car, description: e.target.description.value };
 
-    carsService.update(carId, updatedCar).then(() => {
-      history.push(`/cars/details/${carId}`);
-      return;
-    });
+    carsService
+      .update(carId, updatedCar)
+      .then(() => {
+        history.push(`/cars/details/${carId}`);
+        return;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const onDescriptionChangeHandler = (e) => {

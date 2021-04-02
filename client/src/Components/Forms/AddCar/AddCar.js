@@ -11,6 +11,9 @@ const AddCar = ({ history }) => {
       .create(model.value, description.value, imageURL.value, category.value)
       .then(() => {
         history.push("/");
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
   return (
