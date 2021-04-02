@@ -1,11 +1,9 @@
 footer {
-  margin-top: auto;
-  text-align: center;
   background: #344649;
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 50px;
+  height: 65px;
   width: 100%;
   overflow: hidden;
   display: flex;
