@@ -12,6 +12,7 @@ const Login = ({ history }) => {
     auth
       .signInWithEmailAndPassword(username, password)
       .then((userCredential) => {
+        console.log("USER ID: ", userCredential.user.uid);
         history.push("/");
       })
       .catch((error) => {

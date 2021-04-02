@@ -3,7 +3,6 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 
 const Header = ({ isAuthenticated, username }) => {
-  console.log("header " + isAuthenticated);
   return (
     <header id="site-header">
       <nav className="navbar">

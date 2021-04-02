@@ -23,7 +23,7 @@ const CarDetails = ({ match }) => {
       <p>
         Car likes: {car.likes}{" "}
         <button className="button" onClick={onLikeClickHandler}>
-          <i class="far fa-thumbs-up"></i>
+          <i className="far fa-thumbs-up"></i>
           Like
         </button>
       </p>
