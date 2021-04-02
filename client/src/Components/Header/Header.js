@@ -1,13 +1,13 @@
 import "./Header.css";
 
 import { Link } from "react-router-dom";
-import { isLoggedin } from "../../auth";
 
-const Header = () => {
+const Header = ({ isAuthenticated, username }) => {
+  console.log("header " + isAuthenticated);
   return (
     <header id="site-header">
       <nav className="navbar">
-        {isLoggedin() ? (
+        {isAuthenticated ? (
           <section className="navbar-dashboard">
             <div className="first-bar">
               <Link to="/">Dashboard</Link>
@@ -20,9 +20,13 @@ const Header = () => {
             </div>
             <div className="second-bar">
               <ul>
-                <li>Welcome, Pesho!</li>
+                {isAuthenticated ? (
+                  <li>Welcome, {username}!</li>
+                ) : (
+                  <li>Welcome, Guest</li>
+                )}
                 <li>
-                  <Link to="/Login">
+                  <Link to="/logout">
                     <i className="fas fa-sign-out-alt"></i> Logout
                   </Link>
                 </li>

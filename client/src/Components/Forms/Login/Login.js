@@ -1,70 +1,62 @@
-import { Component } from "react";
-import "../Forms.css";
+import { auth } from "../../../Utils/firebase";
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
+const Login = ({ history }) => {
+  const onLoginFormSubmitHandler = (e) => {
+    e.preventDefault();
 
-    this.state = {
-      username: "",
-      password: "",
-    };
+    const username = e.target.username.value;
+    const password = e.target.password.value;
 
-    this.onChangeHandler = this.onChangeHandler.bind(this);
-  }
+    console.log(username, password);
 
-  onChangeHandler(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
+    auth
+      .signInWithEmailAndPassword(username, password)
+      .then((userCredential) => {
+        history.push("/");
+      });
+  };
 
-  render() {
-    console.log(this.state);
-    return (
-      <section className="login">
-        <form action="#" method="post">
-          <fieldset>
-            <legend>Login</legend>
-            <p className="field">
-              <label htmlFor="username">Username</label>
-              <span className="input">
-                <input
-                  type="text"
-                  name="username"
-                  id="username"
-                  placeholder="Username"
-                  value={this.state.username}
-                  onChange={this.onChangeHandler}
-                />
-                <span className="actions"></span>
-                <i className="fas fa-user"></i>
-              </span>
-            </p>
-            <p className="field">
-              <label htmlFor="password">Password</label>
-              <span className="input">
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Password"
-                  value={this.state.password}
-                  onChange={this.onChangeHandler}
-                />
-                <span className="actions"></span>
-                <i className="fas fa-key"></i>
-              </span>
-            </p>
-            <input
-              className="button"
-              type="submit"
-              className="submit"
-              value="Login"
-            />
-          </fieldset>
-        </form>
-      </section>
-    );
-  }
-}
+  return (
+    <section className="login">
+      <form onSubmit={onLoginFormSubmitHandler}>
+        <fieldset>
+          <legend>Login</legend>
+          <p className="field">
+            <label htmlFor="username">E-mail</label>
+            <span className="input">
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="E-mail"
+              />
+              <span className="actions"></span>
+              <i className="fas fa-user"></i>
+            </span>
+          </p>
+          <p className="field">
+            <label htmlFor="password">Password</label>
+            <span className="input">
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+              />
+              <span className="actions"></span>
+              <i className="fas fa-key"></i>
+            </span>
+          </p>
+          <input
+            className="button"
+            type="submit"
+            className="submit"
+            value="Login"
+          />
+        </fieldset>
+      </form>
+    </section>
+  );
+};
 
 export default Login;
