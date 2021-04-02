@@ -13,7 +13,7 @@ const Car = ({ id, model, description, imageURL, category, likes }) => {
         <Link to={`/cars/details/${id}`}>
           <button className="button">Details</button>
         </Link>
-        <i className="fas fa-heart"></i> <span> {likes}</span>
+        <i class="far fa-thumbs-up"></i> <span> {likes}</span>
       </div>
     </li>
   );
