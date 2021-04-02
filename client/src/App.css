@@ -10,12 +10,16 @@ body {
 }
 
 .basic {
-  background: linear-gradient(rgba(250, 248, 248, 0.2), rgba(25, 167, 173, 0.2)),
+  background: linear-gradient(rgba(250, 248, 248, 0.4), rgba(25, 167, 173, 0.4)),
     url(../src/Components/Home/bmw_m5_f90-1920x1080.jpg) no-repeat center;
   background-size: cover;
   height: 85vh;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
 #container {
