@@ -7,15 +7,21 @@ const AddCar = ({ history }) => {
     e.preventDefault();
 
     const { model, description, imageURL, category } = e.target;
+    const userID = auth.currentUser.uid;
+    const likes = 0;
 
     const newCar = {
       model: e.target.model.value,
       description: e.target.description.value,
       imageURL: e.target.imageURL.value,
       category: e.target.category.value,
+      uid: userID,
+      likes: likes,
     };
+
+    db.ref(`cars`).push(newCar);
+
     console.log(newCar);
-    // auth.database().ref("cars").push(model, description, imageURL, category);
 
     carsServices
       .create(model.value, description.value, imageURL.value, category.value)
