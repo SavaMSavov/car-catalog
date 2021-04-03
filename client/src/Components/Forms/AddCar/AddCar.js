@@ -9,6 +9,7 @@ const AddCar = ({ history }) => {
     const { model, description, imageURL, category } = e.target;
     const userID = auth.currentUser.uid;
     const likes = 0;
+    const carID = `car-${Date.now()}`;
 
     const newCar = {
       model: e.target.model.value,
@@ -17,20 +18,25 @@ const AddCar = ({ history }) => {
       category: e.target.category.value,
       uid: userID,
       likes: likes,
+      carId: carID,
     };
 
-    db.ref(`cars`).push(newCar);
+    db.ref(`cars/`)
+      .push(newCar)
+      .then(() => {
+        history.push("/");
+      });
 
     console.log(newCar);
 
-    carsServices
-      .create(model.value, description.value, imageURL.value, category.value)
-      .then(() => {
-        history.push("/");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // carsServices
+    //   .create(model.value, description.value, imageURL.value, category.value)
+    //   .then(() => {
+    //     history.push("/");
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   };
   return (
     <section className="create">
