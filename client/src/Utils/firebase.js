@@ -1,4 +1,4 @@
-import firebase from "firebase/app";
+import firebase from "firebase";
 import "firebase/auth";
 
 const firebaseConfig = {
@@ -25,6 +25,5 @@ firebase.auth().onAuthStateChanged((user) => {
   }
 });
 
-export default firebase;
-
 export const auth = firebase.auth();
+export const db = firebase.database();
