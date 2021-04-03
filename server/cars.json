@@ -6,14 +6,7 @@
       "description": "Март 2014, Седан, Употребяван автомобил, нов внос, В добро състояние, Дизел, 221 000км, Автоматични скорости, 258к.с., EURO 5, 3000см3, 4/5 врати, Тъмно сив металик",
       "imageURL": "https://thumbs.dreamstime.com/b/modern-car-road-engels-russia-june-white-bmw-series-f-parked-empty-countryside-asphalt-daytime-121146348.jpg",
       "category": "3-Series",
-      "likes": 33,
-      "_acl": {
-        "creator": "5bb0874caccb650325e0227b"
-      },
-      "_kmd": {
-        "lmt": "2018-10-03T08:04:40.812Z",
-        "ect": "2018-09-30T08:25:50.963Z"
-      }
+      "likes": 33
     },
     {
       "id": "5bb08ba9e1d636567dca0767",
@@ -21,14 +14,7 @@
       "description": "Септември 2012, Седан, Употребяван автомобил, нов внос, В добро състояние, Дизел, 266 132км, Автоматични скорости, 258к.с., EURO 5, 3000см3, 4/5 врати, Черен металик",
       "imageURL": "https://cdn.bmwblog.com/wp-content/uploads/BMW-M5-F10-Frozen-White-Individual-2012-04.jpg",
       "category": "5-Series",
-      "likes": 20,
-      "_acl": {
-        "creator": "5bb088003e67d9190597f9a6"
-      },
-      "_kmd": {
-        "lmt": "2018-09-30T14:50:06.184Z",
-        "ect": "2018-09-30T08:39:05.063Z"
-      }
+      "likes": 20
     },
     {
       "id": "5bb08bf342b2cd1521b1d5c2",
@@ -36,14 +22,7 @@
       "description": "Октомври 2013, Комби, Употребяван автомобил, нов внос, В добро състояние, Дизел, 254 521км, Автоматични скорости, 258к.с., EURO 5, 3000см3, 4/5 врати, Черен металик",
       "imageURL": "https://www.mad4wheels.com/img/free-car-images/mobile/10870/bmw-328i-f31-touring-luxury-2012-351636.jpg",
       "category": "3-Series",
-      "likes": 42,
-      "_acl": {
-        "creator": "5bb088003e67d9190597f9a6"
-      },
-      "_kmd": {
-        "lmt": "2018-10-03T08:04:29.599Z",
-        "ect": "2018-09-30T08:40:19.085Z"
-      }
+      "likes": 42
     },
     {
       "id": "5bb08c9453e0a859203640fe",
@@ -51,14 +30,7 @@
       "description": "Ноември 2012, Купе, Употребяван автомобил, В добро състояние, Бензин, 201 000км, Автоматични скорости, 450к.с., EURO 5, 5000см3, 4/5 врати, Черен металик",
       "imageURL": "https://cdn3.focus.bg/autodata/i/bmw/6er/6er-coupe-f12/large/24748491cb9cb2d01ac844994fa0af93.jpg",
       "category": "6-Series",
-      "likes": "4",
-      "_acl": {
-        "creator": "5bb08c01eb7615589b4f360e"
-      },
-      "_kmd": {
-        "lmt": "2018-10-02T12:19:07.215Z",
-        "ect": "2018-09-30T08:43:00.308Z"
-      }
+      "likes": "4"
     },
     {
       "id": "5bb08d1353e0a859203643e6",
@@ -66,14 +38,7 @@
       "description": "Януари 2013, Седан, Употребяван автомобил, В добро състояние, Бензин, 203 001км, Автоматични скорости, 458к.с., 4/5 врати, Бял металик",
       "imageURL": "https://i.pinimg.com/originals/43/7a/e8/437ae871a528d6d58f87600a599b577a.jpg",
       "category": "7-Series",
-      "likes": 37,
-      "_acl": {
-        "creator": "5bb0874caccb650325e0227b"
-      },
-      "_kmd": {
-        "lmt": "2018-10-01T10:35:13.712Z",
-        "ect": "2018-09-30T08:45:07.709Z"
-      }
+      "likes": 37
     },
     {
       "id": "5bb08c47e541f21900d8a7a1",
@@ -81,14 +46,15 @@
       "description": "Февруари 2014, Джип, Употребяван автомобил, нов внос, В добро състояние, Дизел, 205 000км, Автоматични скорости, 381к.с., EURO 6, 3000см3, 4/5 врати, Черен металик",
       "imageURL": "https://images.caricos.com/b/bmw/2014_bmw_x5/images/1920x1080/2014_bmw_x5_9_1920x1080.jpg",
       "category": "Other",
-      "likes": 10,
-      "_acl": {
-        "creator": "5bb08c01eb7615589b4f360e"
-      },
-      "_kmd": {
-        "lmt": "2018-09-30T10:35:01.294Z",
-        "ect": "2018-09-30T08:41:43.490Z"
-      }
+      "likes": 10
+    },
+    {
+      "model": "tesla",
+      "description": "асдасд",
+      "imageURL": "https://www.bmw.bg/content/dam/bmw/common/all-models/2-series/gran-coupe/2019/Inspire-Highligt/bmw-2-series-gran-coupe-inspire-ag-sp-xxl.jpg",
+      "category": "Other",
+      "likes": 0,
+      "id": "2Ybnu3j"
     }
   ]
 }
