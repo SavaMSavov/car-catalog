@@ -6,7 +6,7 @@ const Car = ({ id, model, description, imageURL, category, likes }) => {
       <h3>Model: {model}</h3>
       <p>Category: {category}</p>
 
-      <img src={imageURL} />
+      <img src={imageURL} alt="" />
 
       <p className="description">{description}</p>
       <div className="car-info">

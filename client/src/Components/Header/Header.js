@@ -10,20 +10,17 @@ const Header = ({ isAuthenticated, username }) => {
           <section className="navbar-dashboard">
             <div className="first-bar">
               <Link to="/">BMW Catalog</Link>
-              <a className="button" href="#">
+              <Link to="/my-cars" className="button" href="#">
                 My Cars
-              </a>
+              </Link>
               <Link to="/add-car" className="button">
                 Add Car
               </Link>
             </div>
             <div className="second-bar">
               <ul>
-                {isAuthenticated ? (
-                  <li>Welcome, {username}!</li>
-                ) : (
-                  <li>Welcome, Guest</li>
-                )}
+                <li>Welcome, {username}!</li>
+
                 <li>
                   <Link to="/logout">
                     <i className="fas fa-sign-out-alt"></i> Logout

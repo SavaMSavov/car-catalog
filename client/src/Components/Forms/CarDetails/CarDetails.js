@@ -7,7 +7,7 @@ const CarDetails = ({ match }) => {
 
   useEffect(() => {
     carsService.getOne(match.params.carId).then((res) => setCar(res));
-  }, []);
+  }, [match.params.carId]);
 
   const onLikeClickHandler = () => {
     let incrementedLikes = +car.likes + 1;

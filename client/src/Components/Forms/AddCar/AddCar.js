@@ -1,11 +1,21 @@
 import "../Forms.css";
 import * as carsServices from "..//..//Services/carsService";
+import { auth, db } from "../../../Utils/firebase";
 
 const AddCar = ({ history }) => {
   const onCreateCarSubmitHandler = (e) => {
     e.preventDefault();
 
     const { model, description, imageURL, category } = e.target;
+
+    const newCar = {
+      model: e.target.model.value,
+      description: e.target.description.value,
+      imageURL: e.target.imageURL.value,
+      category: e.target.category.value,
+    };
+    console.log(newCar);
+    // auth.database().ref("cars").push(model, description, imageURL, category);
 
     carsServices
       .create(model.value, description.value, imageURL.value, category.value)

@@ -15,6 +15,8 @@ import { useEffect, useState } from "react";
 
 import "./App.css";
 
+import MyCars from "./Components/MyCars/MyCars";
+
 function App() {
   const [user, setUser] = useState(null);
 
@@ -36,6 +38,7 @@ function App() {
             <Route path="/" exact component={Categories} />
             <Route path="/categories/:category" component={Categories} />
             <Route path="/cars/details/:carId" exact component={CarDetails} />
+            <Route path="/my-cars" component={MyCars} />
             <Route path="/add-car" component={AddCar} />
             <Route
               path="/cars/details/:carId/edit"
