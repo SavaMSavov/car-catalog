@@ -103,3 +103,22 @@ form textarea:focus {
   text-align: center;
   overflow: auto;
 }
+.submit {
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  font-weight: 300;
+  color: #ffffff;
+  background-color: #3e9bd1;
+  text-align: center;
+  transition: all 0.2s;
+  font-size: 1rem;
+}
+.submit:hover {
+  background-color: #21506b;
+  cursor: pointer;
+}
