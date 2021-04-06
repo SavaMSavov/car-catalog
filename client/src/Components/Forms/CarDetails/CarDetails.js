@@ -27,9 +27,7 @@ const CarDetails = ({ match }) => {
           Like
         </button>
       </p>
-      <p className="img">
-        <img src={car.imageURL} />
-      </p>
+      <img src={car.imageURL} />
       <p className="description">{car.description}</p>{" "}
       <div className="car-info">
         <Link to={`/cars/details/${car.id}/edit`}>
