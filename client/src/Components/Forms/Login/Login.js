@@ -13,7 +13,7 @@ const Login = ({ history }) => {
       .signInWithEmailAndPassword(username, password)
       .then((userCredential) => {
         console.log("USER ID: ", userCredential.user.uid);
-        history.push("/");
+        history.push("/categories/:category");
       })
       .catch((error) => {
         console.log(error);

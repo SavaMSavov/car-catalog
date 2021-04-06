@@ -10,7 +10,7 @@ const Register = ({ history }) => {
     auth
       .createUserWithEmailAndPassword(username, password)
       .then((userCredential) => {
-        history.push("/");
+        history.push("/categories/:category");
       })
       .catch((error) => {
         console.log(error);
