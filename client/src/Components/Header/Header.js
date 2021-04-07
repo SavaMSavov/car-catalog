@@ -9,7 +9,7 @@ const Header = ({ isAuthenticated, username }) => {
         {isAuthenticated ? (
           <section className="navbar-dashboard">
             <div className="first-bar">
-              <Link to="/categories/:category">BMW Catalog</Link>
+              <Link to="/categories">BMW Catalog</Link>
               <Link to="/my-cars" className="button" href="#">
                 My Cars
               </Link>

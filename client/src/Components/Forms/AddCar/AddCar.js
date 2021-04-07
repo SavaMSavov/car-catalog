@@ -22,7 +22,7 @@ const AddCar = ({ history }) => {
     db.ref(`cars/`)
       .push(newCar)
       .then(() => {
-        history.push("/");
+        history.push("/categories/:category");
       });
 
     console.log(newCar);
