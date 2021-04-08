@@ -1,12 +1,12 @@
 import "../Forms.css";
-import * as carsServices from "..//..//Services/carsService";
+// import * as carsServices from "..//..//Services/carsService";
 import { auth, db } from "../../../Utils/firebase";
 
 const AddCar = ({ history }) => {
   const onCreateCarSubmitHandler = (e) => {
     e.preventDefault();
 
-    const { model, description, imageURL, category } = e.target;
+    // const { model, description, imageURL, category } = e.target;
     const userID = auth.currentUser.uid;
     const likes = 0;
 
@@ -22,10 +22,8 @@ const AddCar = ({ history }) => {
     db.ref(`cars/`)
       .push(newCar)
       .then(() => {
-        history.push("/categories/:category");
+        history.push("/categories/");
       });
-
-    console.log(newCar);
 
     // carsServices
     //   .create(model.value, description.value, imageURL.value, category.value)
