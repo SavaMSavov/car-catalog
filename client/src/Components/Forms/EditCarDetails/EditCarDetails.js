@@ -1,59 +1,33 @@
-import { useEffect, useState } from "react";
-import * as carsService from "../../Services/carsService";
+import { db } from "../../../Utils/firebase";
 
-import InputError from "../../Shared/InputError/InputError";
+const EditCarDetails = (props) => {
+  const allCars = props.CarsDataContent;
+  const currentCarId = props.match.params.carId;
 
-const EditCarDetails = ({ match, history }) => {
-  const [car, setCar] = useState({});
-  const [errorMessage, setErrorMessage] = useState("");
+  const currentCar = allCars.find((obj) => {
+    return obj.id === currentCarId;
+  });
 
-  useEffect(() => {
-    carsService.getOne(match.params.carId).then((res) => setCar(res));
-  }, []);
-
-  const onDescriptionSaveSubmit = (e) => {
-    e.preventDefault();
-    console.log(e.target);
-
-    let carId = match.params.carId;
-    let updatedCar = { ...car, description: e.target.description.value };
-
-    carsService
-      .update(carId, updatedCar)
-      .then(() => {
-        history.push(`/cars/details/${carId}`);
-        return;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  const onDescriptionChangeHandler = (e) => {
-    if (e.target.value.length < 10) {
-      setErrorMessage("Description too short");
-    } else {
-      setErrorMessage("");
-    }
-  };
+  function onDescriptionSaveSubmit(e) {
+    db.ref(`/cars/${currentCarId}`).update({
+      description: e.target.description.value,
+    });
+    props.history.push("/categories");
+  }
 
   return (
     <section className="detailsMyCar">
-      <h3>{car.model}</h3>
+      <h3>{currentCar.model}</h3>
       <p>
-        Car counter: <i className="fas fa-heart"></i> {car.likes}
+        Likes counter: <i className="far fa-thumbs-up"></i> {currentCar.likes}
       </p>
-      <p className="img">
-        <img src={car.imageURL} />
-      </p>
+      <img className="img" alt="" src={currentCar.imageURL} />
       <form onSubmit={onDescriptionSaveSubmit}>
         <textarea
           type="text"
           name="description"
-          onBlur={onDescriptionChangeHandler}
-          defaultValue={car.description}
+          defaultValue={currentCar.description}
         ></textarea>
-        <InputError>{errorMessage}</InputError>
         <button className="button">Save</button>
       </form>
     </section>

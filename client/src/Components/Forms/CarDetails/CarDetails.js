@@ -1,42 +1,55 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import * as carsService from "../../Services/carsService";
+import { db } from "../../../Utils/firebase";
 
-const CarDetails = ({ match }) => {
-  let [car, setCar] = useState({});
+const CarDetails = (props) => {
+  const allCars = props.CarsDataContent;
+  const currentLoggedUserId = props.currentLoggedUser;
+  const currentCarId = props.match.params.carId;
 
-  useEffect(() => {
-    carsService.getOne(match.params.carId).then((res) => setCar(res));
-  }, [match.params.carId]);
+  const currentCar = allCars.find((obj) => {
+    return obj.id === currentCarId;
+  });
 
-  const onLikeClickHandler = () => {
-    let incrementedLikes = +car.likes + 1;
+  function deleteFunc() {
+    db.ref(`/cars/${currentCarId}`).remove();
+    props.history.push("/categories");
+  }
 
-    carsService.car(match.params.carId, incrementedLikes).then((updatedCar) => {
-      setCar((state) => ({ ...state, likes: Number(updatedCar.likes) }));
+  function onLikeClick() {
+    db.ref(`/cars/${currentCarId}`).update({
+      likes: currentCar.likes + 1,
     });
-  };
+  }
 
   return (
     <section className="detailsOtherCar">
-      <h3>{car.model}</h3>
-      <p>
-        Car likes: {car.likes}{" "}
-        <button className="button" onClick={onLikeClickHandler}>
-          <i className="far fa-thumbs-up"></i>
-          Like
-        </button>
-      </p>
-      <img src={car.imageURL} />
-      <p className="description">{car.description}</p>{" "}
-      <div className="car-info">
-        <Link to={`/cars/details/${car.id}/edit`}>
-          <button className="button">Edit</button>
-        </Link>
-        <Link to="#">
-          <button className="button">Delete</button>
-        </Link>
-      </div>
+      <h3>{currentCar.model}</h3>
+      {currentLoggedUserId !== currentCar.uid ? (
+        <p>
+          Car likes: {currentCar.likes}
+          <button className="button" onClick={onLikeClick}>
+            <i className="far fa-thumbs-up"></i>
+            Like
+          </button>
+        </p>
+      ) : (
+        <></>
+      )}
+      <img className="img " alt="" src={currentCar.imageURL} />
+      <p className="description">{currentCar.description}</p>
+      {currentLoggedUserId === currentCar.uid ? (
+        <div className="car-info">
+          <Link to={`/cars/details/${currentCar.id}/edit`}>
+            <button className="button">Edit</button>
+          </Link>
+
+          <button onClick={deleteFunc} className="button">
+            Delete
+          </button>
+        </div>
+      ) : (
+        <></>
+      )}
     </section>
   );
 };

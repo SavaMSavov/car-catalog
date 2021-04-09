@@ -1,6 +1,4 @@
 import Car from "../Car/Car";
-// import * as carsServices from "../Services/carsService";
-// import { db } from "../../Utils/firebase";
 import { Component } from "react";
 
 class Categories extends Component {
