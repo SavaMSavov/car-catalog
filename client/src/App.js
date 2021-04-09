@@ -94,7 +94,7 @@ function App() {
               path="/logout"
               render={() => {
                 auth.signOut();
-                return <Redirect to="/home" />;
+                return <Redirect to="/" />;
               }}
             />
           </>
