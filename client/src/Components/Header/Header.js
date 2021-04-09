@@ -3,6 +3,7 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 
 const Header = ({ isAuthenticated, username }) => {
+  const shortName = username.split("@")[0];
   return (
     <header id="site-header">
       <nav className="navbar">
@@ -10,7 +11,7 @@ const Header = ({ isAuthenticated, username }) => {
           <section className="navbar-dashboard">
             <div className="first-bar">
               <Link to="/categories">BMW Catalog</Link>
-              <Link to="/my-cars" className="button" href="#">
+              <Link to="/my-cars" className="button">
                 My Cars
               </Link>
               <Link to="/add-car" className="button">
@@ -19,7 +20,7 @@ const Header = ({ isAuthenticated, username }) => {
             </div>
             <div className="second-bar">
               <ul>
-                <li>Welcome, {username}!</li>
+                <li>Welcome, {shortName} !</li>
 
                 <li>
                   <Link to="/logout">

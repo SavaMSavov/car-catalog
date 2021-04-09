@@ -100,7 +100,7 @@ function App() {
           </>
         ) : (
           <>
-            <Route path="/home" exact component={Home} />
+            <Route path="/" exact component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
           </>
