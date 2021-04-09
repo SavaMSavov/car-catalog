@@ -48,12 +48,7 @@ const Register = ({ history }) => {
               <i className="fas fa-key"></i>
             </span>
           </p>
-          <input
-            className="button"
-            type="submit"
-            className="submit"
-            value="Register"
-          />
+          <input type="submit" className="submit" value="Register" />
         </fieldset>
       </form>
     </section>

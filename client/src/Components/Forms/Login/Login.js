@@ -7,12 +7,9 @@ const Login = ({ history }) => {
     const username = e.target.username.value;
     const password = e.target.password.value;
 
-    console.log(username, password);
-
     auth
       .signInWithEmailAndPassword(username, password)
-      .then((userCredential) => {
-        console.log("USER ID: ", userCredential.user.uid);
+      .then(() => {
         history.push("/categories");
       })
       .catch((error) => {
@@ -51,12 +48,7 @@ const Login = ({ history }) => {
               <i className="fas fa-key"></i>
             </span>
           </p>
-          <input
-            className="button"
-            type="submit"
-            className="submit"
-            value="Login"
-          />
+          <input type="submit" className="submit" value="Login" />
         </fieldset>
       </form>
     </section>
