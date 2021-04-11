@@ -1,18 +1,26 @@
 import { db } from "../../../Utils/firebase";
 
 const EditCarDetails = (props) => {
-  const allCars = props.CarsDataContent;
+  // const allCars = props.CarsDataContent;
+  let allCars = [];
+  db.ref("cars/").on("value", (snapshot) => {
+    snapshot.forEach((snap) => {
+      const snapObj = snap.val();
+      snapObj.id = snap.key;
+      allCars.push(snapObj);
+    });
+  });
   const currentCarId = props.match.params.carId;
 
   const currentCar = allCars.find((obj) => {
     return obj.id === currentCarId;
   });
-
   function onDescriptionSaveSubmit(e) {
     db.ref(`/cars/${currentCarId}`).update({
       description: e.target.description.value,
     });
-    props.history.push("/categories");
+
+    props.history.push("/my-cars");
   }
 
   return (
