@@ -2,23 +2,34 @@ import { Link } from "react-router-dom";
 import { db } from "../../../Utils/firebase";
 
 const CarDetails = (props) => {
-  const allCars = props.CarsDataContent;
+  // const allCars = props.CarsDataContent;
+  let allCars = [];
+  db.ref("cars/").on("value", (snapshot) => {
+    snapshot.forEach((snap) => {
+      const snapObj = snap.val();
+      snapObj.id = snap.key;
+      allCars.push(snapObj);
+    });
+  });
+
   const currentLoggedUserId = props.currentLoggedUser;
   const currentCarId = props.match.params.carId;
 
   const currentCar = allCars.find((obj) => {
+    // console.log(currentCarId);
     return obj.id === currentCarId;
   });
 
   function deleteFunc() {
     db.ref(`/cars/${currentCarId}`).remove();
-    props.history.push("/categories");
+    props.history.push("/my-cars");
   }
 
   function onLikeClick() {
     db.ref(`/cars/${currentCarId}`).update({
       likes: currentCar.likes + 1,
     });
+    props.history.push(`/cars/details/${currentCarId}`);
   }
 
   return (
