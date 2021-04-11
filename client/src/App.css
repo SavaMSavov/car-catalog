@@ -97,6 +97,7 @@ img {
 .detailsMyCar textarea {
   width: 480px;
   height: 150px;
+  margin-top: 50px;
 }
 
 .otherCar > p:nth-child(4) {

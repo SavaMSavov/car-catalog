@@ -2,7 +2,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer id="site-footer">
-      <p>Sava Savov &copy; </p>
+      2021 - BMW Photos Catalog - All rights reserved. &copy;
     </footer>
   );
 };

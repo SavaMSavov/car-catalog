@@ -9,10 +9,9 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-footer p {
   font-weight: bold;
   margin: 0rem;
   color: white;
 }
+
+
