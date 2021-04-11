@@ -1,23 +1,37 @@
 import Car from "../Car/Car";
 import { Component } from "react";
+import { db } from "../../Utils/firebase";
 
 class Categories extends Component {
   constructor(props) {
     super(props);
-    this.allCars = this.props.CarsDataContent;
     this.state = {
-      cars: props.CarsDataContent,
+      cars: [],
     };
     this.filter = this.filter.bind(this);
+    this.allDataCars = [];
+  }
+
+  componentDidMount() {
+    db.ref("cars/").on("value", (snapshot) => {
+      let allCars = [];
+      snapshot.forEach((snap) => {
+        const snapObj = snap.val();
+        snapObj.id = snap.key;
+        allCars.push(snapObj);
+        this.allDataCars.push(snapObj);
+      });
+      this.setState({ cars: allCars });
+    });
   }
 
   filter(e) {
     const clickedCategory = e.target.value;
 
     if (clickedCategory === "all") {
-      this.setState({ cars: this.allCars });
+      this.setState({ cars: this.allDataCars });
     } else {
-      const filteredArray = this.allCars.filter((obj) => {
+      const filteredArray = this.allDataCars.filter((obj) => {
         return obj.category === clickedCategory;
       });
       this.setState({ cars: filteredArray });
