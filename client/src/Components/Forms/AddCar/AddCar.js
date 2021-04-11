@@ -6,7 +6,6 @@ const AddCar = ({ history }) => {
     e.preventDefault();
 
     const userID = auth.currentUser.uid;
-    const likes = 0;
 
     const newCar = {
       model: e.target.model.value,
@@ -14,13 +13,13 @@ const AddCar = ({ history }) => {
       imageURL: e.target.imageURL.value,
       category: e.target.category.value,
       uid: userID,
-      likes: likes,
+      likes: 0,
     };
 
     db.ref(`cars/`)
       .push(newCar)
       .then(() => {
-        history.push("/categories/");
+        history.push("/my-cars");
       });
   };
   return (
@@ -74,7 +73,7 @@ const AddCar = ({ history }) => {
               <span className="actions"></span>
             </span>
           </p>
-          <input className="button submit" type="submit" value="Add Car" />
+          <input className=" submit" type="submit" value="Add Car" />
         </fieldset>
       </form>
     </section>
