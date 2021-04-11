@@ -24,11 +24,11 @@ const CarDetails = (props) => {
   const deleteFunc = () => {
     db.ref(`/cars/${currentCarId}`).remove();
     props.history.push("/my-cars");
-  }
+  };
 
   const [likes, setLikes] = useState(currentCar.likes);
   const onLikeClick = () => {
-    setLikes(likes + 1);
+    setLikes((prevLikes) => prevLikes + 1);
     db.ref(`/cars/${currentCarId}`).update({
       likes: likes,
     });
