@@ -13,7 +13,7 @@ const Register = ({ history }) => {
         history.push("/categories");
       })
       .catch((error) => {
-        console.log(error);
+        alert(error);
       });
   };
 
