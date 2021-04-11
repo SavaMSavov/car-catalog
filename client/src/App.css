@@ -79,7 +79,7 @@ img {
 .detailsOtherCar,
 .detailsMyCar,
 .deleteCar,
-.otherCar,
+.currentCar,
 .myCar {
   display: flex;
   flex-direction: column;
@@ -88,7 +88,7 @@ img {
 
 .detailsMyCar > p:nth-child(2),
 .deleteCar > p:nth-child(2),
-.otherCar > p:nth-child(2),
+.currentCar > p:nth-child(2),
 .myCar > p:nth-child(2) {
   font-size: 1.2rem;
   font-weight: bold;
@@ -100,7 +100,7 @@ img {
   margin-top: 50px;
 }
 
-.otherCar > p:nth-child(4) {
+.currentCar > p:nth-child(4) {
   width: 30rem;
   overflow: hidden;
 }
