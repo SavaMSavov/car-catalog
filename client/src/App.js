@@ -11,9 +11,9 @@ import CarDetails from "./Components/Forms/CarDetails/CarDetails";
 import EditCarDetails from "./Components/Forms/EditCarDetails/EditCarDetails";
 import MyCars from "./Components/MyCars/MyCars";
 
-import { auth, db } from "./Utils/firebase";
-import { useEffect, useMemo, useState } from "react";
-import { useList } from "react-firebase-hooks/database";
+import { auth /*, db*/ } from "./Utils/firebase";
+import { useEffect, /*useMemo,*/ useState } from "react";
+//import { useList } from "react-firebase-hooks/database";
 
 import "./App.css";
 
@@ -30,17 +30,18 @@ function App() {
     userId: user?.uid,
   };
 
-  const [snapshots] = useList(db.ref("cars/"));
+  // const [snapshots] = useList(db.ref("cars/"));
 
-  const CarsData = useMemo(
-    () =>
-      snapshots.map((item) => {
-        const itemObj = item.val();
-        itemObj.id = item.key;
-        return itemObj;
-      }),
-    [snapshots]
-  );
+  // const CarsData = useMemo(
+  //   () =>
+  //     snapshots.map((item) => {
+  //       const itemObj = item.val();
+
+  //       itemObj.id = item.key;
+  //       return itemObj;
+  //     }),
+  //   [snapshots]
+  // );
 
   return (
     <div className="container">
@@ -48,44 +49,33 @@ function App() {
       <Switch>
         {authInfo.isAuthenticated ? (
           <>
-            <Route
+            {" "}
+            <Route path="/categories" exact component={Categories} />
+            {/* <Route
               path="/categories"
               exact
               render={(props) => (
                 <Categories {...props} CarsDataContent={CarsData} />
               )}
-            />
+            /> */}
             <Route
               path="/cars/details/:carId"
               exact
               render={(props) => (
-                <CarDetails
-                  {...props}
-                  CarsDataContent={CarsData}
-                  currentLoggedUser={authInfo.userId}
-                />
+                <CarDetails {...props} currentLoggedUser={authInfo.userId} />
               )}
             />
-
             <Route
               path="/my-cars"
-              render={(props) => (
-                <MyCars
-                  {...props}
-                  CarsDataContent={CarsData}
-                  authInfoo={authInfo}
-                />
-              )}
+              render={(props) => <MyCars {...props} authInfoo={authInfo} />}
             />
             <Route path="/add-car" component={AddCar} />
-
             <Route
               path="/cars/details/:carId/edit"
               exact
               render={(props) => (
                 <EditCarDetails
                   {...props}
-                  CarsDataContent={CarsData}
                   currentLoggedUser={authInfo.userId}
                 />
               )}
