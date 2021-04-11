@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { db } from "../../../Utils/firebase";
 
@@ -20,24 +21,27 @@ const CarDetails = (props) => {
     return obj.id === currentCarId;
   });
 
-  function deleteFunc() {
+  const deleteFunc = () => {
     db.ref(`/cars/${currentCarId}`).remove();
     props.history.push("/my-cars");
   }
 
-  function onLikeClick() {
+  const [likes, setLikes] = useState(currentCar.likes);
+  const onLikeClick = () => {
+    setLikes(likes + 1);
     db.ref(`/cars/${currentCarId}`).update({
-      likes: currentCar.likes + 1,
+      likes: likes,
     });
-    props.history.push(`/cars/details/${currentCarId}`);
-  }
+
+    // props.history.push(`/cars/details/${currentCarId}`);
+  };
 
   return (
     <section className="detailsOtherCar">
       <h3>{currentCar.model}</h3>
       {currentLoggedUserId !== currentCar.uid ? (
         <p>
-          Car likes: {currentCar.likes}
+          Car likes: {likes}
           <button className="button" onClick={onLikeClick}>
             <i className="far fa-thumbs-up"></i>
             Like
