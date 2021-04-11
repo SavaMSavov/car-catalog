@@ -3,6 +3,10 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 
 const Header = ({ isAuthenticated, username }) => {
+  let shortName = "";
+  if (isAuthenticated) {
+    shortName = username.split("@")[0];
+  }
   return (
     <header id="site-header">
       <nav className="navbar">
@@ -19,7 +23,7 @@ const Header = ({ isAuthenticated, username }) => {
             </div>
             <div className="second-bar">
               <ul>
-                <li>Welcome, {username} !</li>
+                <li>Welcome, {shortName} !</li>
 
                 <li>
                   <Link to="/logout">
