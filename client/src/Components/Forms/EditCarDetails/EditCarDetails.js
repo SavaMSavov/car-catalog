@@ -1,15 +1,20 @@
+import { useState } from "react";
 import { db } from "../../../Utils/firebase";
+import InputError from "../../InputError/InputError";
+import getAll from "../../Service/Service";
 
 const EditCarDetails = (props) => {
+  const [errorMessage, setErrorMessage] = useState("");
+
   // const allCars = props.CarsDataContent;
-  let allCars = [];
-  db.ref("cars/").on("value", (snapshot) => {
-    snapshot.forEach((snap) => {
-      const snapObj = snap.val();
-      snapObj.id = snap.key;
-      allCars.push(snapObj);
-    });
-  });
+  const allCars = getAll();
+  // db.ref("cars/").on("value", (snapshot) => {
+  //   snapshot.forEach((snap) => {
+  //     const snapObj = snap.val();
+  //     snapObj.id = snap.key;
+  //     allCars.push(snapObj);
+  //   });
+  // });
   const currentCarId = props.match.params.carId;
 
   const currentCar = allCars.find((obj) => {
@@ -22,6 +27,13 @@ const EditCarDetails = (props) => {
 
     props.history.push("/my-cars");
   }
+  const onDescriptionChangeHandler = (e) => {
+    if (e.target.value.length < 10) {
+      setErrorMessage("Description too short");
+    } else {
+      setErrorMessage("");
+    }
+  };
 
   return (
     <section className="detailsMyCar">
@@ -35,7 +47,9 @@ const EditCarDetails = (props) => {
           type="text"
           name="description"
           defaultValue={currentCar.description}
-        ></textarea>
+          onBlur={onDescriptionChangeHandler}
+        ></textarea>{" "}
+        <InputError>{errorMessage}</InputError>
         <button className="button">Save</button>
       </form>
     </section>

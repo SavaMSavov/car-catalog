@@ -1,7 +1,10 @@
 import "../Forms.css";
 import { auth, db } from "../../../Utils/firebase";
+import { useState } from "react";
+import InputError from "../../InputError/InputError";
 
 const AddCar = ({ history }) => {
+  const [errorMessage, setErrorMessage] = useState("");
   const onCreateCarSubmitHandler = (e) => {
     e.preventDefault();
 
@@ -22,6 +25,14 @@ const AddCar = ({ history }) => {
         history.push("/my-cars");
       });
   };
+
+  const onDescriptionChangeHandler = (e) => {
+    if (e.target.value.length < 10) {
+      setErrorMessage("Description too short");
+    } else {
+      setErrorMessage("");
+    }
+  };
   return (
     <section className="create">
       <form onSubmit={onCreateCarSubmitHandler}>
@@ -30,7 +41,13 @@ const AddCar = ({ history }) => {
           <p className="field">
             <label htmlFor="model">Model</label>
             <span className="input">
-              <input type="text" name="model" id="model" placeholder="Model " />
+              {" "}
+              <input
+                type="text"
+                name="model"
+                id="model"
+                placeholder="Model "
+              />{" "}
               <span className="actions"></span>
             </span>
           </p>
@@ -44,10 +61,12 @@ const AddCar = ({ history }) => {
                 name="description"
                 id="description"
                 placeholder="Description"
-              ></textarea>
+                onBlur={onDescriptionChangeHandler}
+              ></textarea>{" "}
               <span className="actions"></span>
             </span>
-          </p>
+          </p>{" "}
+          <InputError>{errorMessage}</InputError>
           <p className="field">
             <label htmlFor="image">Image</label>
             <span className="input">
