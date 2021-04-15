@@ -32,7 +32,7 @@ const CarDetails = (props) => {
   const onLikeClick = () => {
     setLikes((prevLikes) => prevLikes + 1);
     db.ref(`/cars/${currentCarId}`).update({
-      likes: likes,
+      likes: likes + 1,
     });
 
     // props.history.push(`/cars/details/${currentCarId}`);
