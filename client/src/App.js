@@ -7,7 +7,7 @@ import Login from "./Components/Forms/Login/Login";
 import Register from "./Components/Forms/Register/Register";
 import AddCar from "./Components/Forms/AddCar/AddCar";
 import Home from "./Components/Home/Home";
-import CarDetails from "./Components/Forms/CarDetails/CarDetails";
+import CarDetails from "./Components/CarDetails/CarDetails";
 import EditCarDetails from "./Components/Forms/EditCarDetails/EditCarDetails";
 import MyCars from "./Components/MyCars/MyCars";
 
