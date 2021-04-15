@@ -19,6 +19,9 @@ const Header = ({ isAuthenticated, username }) => {
               </Link>
               <Link to="/add-car" className="button">
                 Add Car
+              </Link>{" "}
+              <Link to="/most-liked" className="button">
+                 Most Liked
               </Link>
             </div>
             <div className="second-bar">

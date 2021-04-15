@@ -10,6 +10,7 @@ import Home from "./Components/Home/Home";
 import CarDetails from "./Components/CarDetails/CarDetails";
 import EditCarDetails from "./Components/Forms/EditCarDetails/EditCarDetails";
 import MyCars from "./Components/MyCars/MyCars";
+import MostLiked from "./Components/MostLiked/MostLiked";
 
 import { auth /*, db*/ } from "./Utils/firebase";
 import { useEffect, /*useMemo,*/ useState } from "react";
@@ -58,6 +59,7 @@ function App() {
                 <Categories {...props} CarsDataContent={CarsData} />
               )}
             /> */}
+            <Route path="/most-liked" exact component={MostLiked} />
             <Route
               path="/cars/details/:carId"
               exact
