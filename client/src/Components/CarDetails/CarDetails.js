@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { db } from "../../Utils/firebase";
+import getAll from "../Service/Service";
 
 const CarDetails = (props) => {
   // const allCars = props.CarsDataContent;
-  let allCars = [];
-  db.ref("cars/").on("value", (snapshot) => {
-    snapshot.forEach((snap) => {
-      const snapObj = snap.val();
-      snapObj.id = snap.key;
-      allCars.push(snapObj);
-    });
-  });
+  const allCars = getAll();
+  // let allCars = [];
+  // db.ref("cars/").on("value", (snapshot) => {
+  //   snapshot.forEach((snap) => {
+  //     const snapObj = snap.val();
+  //     snapObj.id = snap.key;
+  //     allCars.push(snapObj);
+  //   });
+  // });
 
   const currentLoggedUserId = props.currentLoggedUser;
   const currentCarId = props.match.params.carId;

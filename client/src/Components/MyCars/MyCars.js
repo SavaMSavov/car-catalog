@@ -1,16 +1,17 @@
-import { db } from "../../Utils/firebase";
+//import { db } from "../../Utils/firebase";
 import Car from "../Car/Car";
+import getAll from "../Service/Service";
 
 const MyCars = (props) => {
-  let allCars = [];
-  db.ref("cars/").on("value", (snapshot) => {
-    snapshot.forEach((snap) => {
-      const snapObj = snap.val();
-      snapObj.id = snap.key;
-      allCars.push(snapObj);
-    });
-  });
-
+  // let allCars = [];
+  // db.ref("cars/").on("value", (snapshot) => {
+  //   snapshot.forEach((snap) => {
+  //     const snapObj = snap.val();
+  //     snapObj.id = snap.key;
+  //     allCars.push(snapObj);
+  //   });
+  // });
+  const allCars = getAll();
   // const allCars = props.CarsDataContent;
   const currUserID = props.authInfoo.userId;
 

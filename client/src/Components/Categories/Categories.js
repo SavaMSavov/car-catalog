@@ -1,6 +1,7 @@
 import Car from "../Car/Car";
 import { Component } from "react";
-import { db } from "../../Utils/firebase";
+// import { db } from "../../Utils/firebase";
+import getAll from "../Service/Service";
 
 class Categories extends Component {
   constructor(props) {
@@ -9,29 +10,32 @@ class Categories extends Component {
       cars: [],
     };
     this.filter = this.filter.bind(this);
-    this.allDataCars = [];
+    this.allCars = [];
   }
 
   componentDidMount() {
-    db.ref("cars/").on("value", (snapshot) => {
-      let allCars = [];
-      snapshot.forEach((snap) => {
-        const snapObj = snap.val();
-        snapObj.id = snap.key;
-        allCars.push(snapObj);
-        this.allDataCars.push(snapObj);
-      });
-      this.setState({ cars: allCars });
-    });
+    // db.ref("cars/").on("value", (snapshot) => {
+    //   let allCars = [];
+    //   snapshot.forEach((snap) => {
+    //     const snapObj = snap.val();
+    //     snapObj.id = snap.key;
+    //     allCars.push(snapObj);
+    //     this.allDataCars.push(snapObj);
+    //   });
+
+    const allCarsFromData = getAll();
+    this.allCars = allCarsFromData;
+    this.setState({ cars: allCarsFromData });
+    // });
   }
 
   filter(e) {
     const clickedCategory = e.target.value;
 
     if (clickedCategory === "all") {
-      this.setState({ cars: this.allDataCars });
+      this.setState({ cars: this.allCars });
     } else {
-      const filteredArray = this.allDataCars.filter((obj) => {
+      const filteredArray = this.allCars.filter((obj) => {
         return obj.category === clickedCategory;
       });
       this.setState({ cars: filteredArray });
