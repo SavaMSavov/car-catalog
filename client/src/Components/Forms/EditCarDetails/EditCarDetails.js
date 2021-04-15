@@ -25,7 +25,7 @@ const EditCarDetails = (props) => {
       description: e.target.description.value,
     });
 
-    props.history.push("/my-cars");
+    props.history.push(`/cars/details/${currentCarId}`);
   }
   const onDescriptionChangeHandler = (e) => {
     if (e.target.value.length < 10) {
