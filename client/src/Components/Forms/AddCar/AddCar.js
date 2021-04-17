@@ -5,6 +5,7 @@ import InputError from "../../InputError/InputError";
 
 const AddCar = ({ history }) => {
   const [errorMessage, setErrorMessage] = useState("");
+  const [errorForImgMessage, setErrorForImgMessage] = useState("");
   const onCreateCarSubmitHandler = (e) => {
     e.preventDefault();
 
@@ -31,6 +32,13 @@ const AddCar = ({ history }) => {
       setErrorMessage("Description too short");
     } else {
       setErrorMessage("");
+    }
+  };
+  const onImageChangeHandler = (e) => {
+    if (e.target.value.length < 10) {
+      setErrorForImgMessage("Add image URL ");
+    } else {
+      setErrorForImgMessage("");
     }
   };
   return (
@@ -75,9 +83,11 @@ const AddCar = ({ history }) => {
                 name="imageURL"
                 id="image"
                 placeholder="Image"
+                onBlur={onImageChangeHandler}
               />
               <span className="actions"></span>
             </span>
+            <InputError>{errorForImgMessage}</InputError>
           </p>
           <p className="field">
             <label htmlFor="category">Category</label>
