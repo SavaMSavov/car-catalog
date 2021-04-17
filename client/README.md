@@ -1,6 +1,7 @@
 # ReactJS Course - March 2021
 
-## Cars Gallery
+## The concept of the application is: users to share and like their photos with other users.
+## Тhere is also a ranking with the most liked posts.
 
 The app allows users to:
 
