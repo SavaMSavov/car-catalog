@@ -3,7 +3,7 @@
 
 ## The concept of the application is: users to share and like their photos with other users. Тhere is also a ranking with the most liked posts.
 
-The app allows users to:
+### The app allows users to:
 
 - Browse all users cars posts
   ![categories](https://user-images.githubusercontent.com/73936691/115106318-c6787700-9f6c-11eb-9a63-6d8dfc2d50b6.png)
