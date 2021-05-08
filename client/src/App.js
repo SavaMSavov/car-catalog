@@ -12,9 +12,8 @@ import EditCarDetails from "./Components/Forms/EditCarDetails/EditCarDetails";
 import MyCars from "./Components/MyCars/MyCars";
 import MostLiked from "./Components/MostLiked/MostLiked";
 
-import { auth /*, db*/ } from "./Utils/firebase";
-import { useEffect, /*useMemo,*/ useState } from "react";
-//import { useList } from "react-firebase-hooks/database";
+import { auth } from "./Utils/firebase";
+import { useEffect, useState } from "react";
 
 import "./App.css";
 
@@ -31,34 +30,13 @@ function App() {
     userId: user?.uid,
   };
 
-  // const [snapshots] = useList(db.ref("cars/"));
-
-  // const CarsData = useMemo(
-  //   () =>
-  //     snapshots.map((item) => {
-  //       const itemObj = item.val();
-
-  //       itemObj.id = item.key;
-  //       return itemObj;
-  //     }),
-  //   [snapshots]
-  // );
-
   return (
     <div className="container">
       <Header {...authInfo} />
       <Switch>
         {authInfo.isAuthenticated ? (
           <>
-            {" "}
             <Route path="/categories" exact component={Categories} />
-            {/* <Route
-              path="/categories"
-              exact
-              render={(props) => (
-                <Categories {...props} CarsDataContent={CarsData} />
-              )}
-            /> */}
             <Route path="/most-liked" exact component={MostLiked} />
             <Route
               path="/cars/details/:carId"

@@ -5,16 +5,7 @@ import getAll from "../../Service/Service";
 
 const EditCarDetails = (props) => {
   const [errorMessage, setErrorMessage] = useState("");
-
-  // const allCars = props.CarsDataContent;
   const allCars = getAll();
-  // db.ref("cars/").on("value", (snapshot) => {
-  //   snapshot.forEach((snap) => {
-  //     const snapObj = snap.val();
-  //     snapObj.id = snap.key;
-  //     allCars.push(snapObj);
-  //   });
-  // });
   const currentCarId = props.match.params.carId;
 
   const currentCar = allCars.find((obj) => {

@@ -4,22 +4,11 @@ import { db } from "../../Utils/firebase";
 import getAll from "../Service/Service";
 
 const CarDetails = (props) => {
-  // const allCars = props.CarsDataContent;
   const allCars = getAll();
-  // let allCars = [];
-  // db.ref("cars/").on("value", (snapshot) => {
-  //   snapshot.forEach((snap) => {
-  //     const snapObj = snap.val();
-  //     snapObj.id = snap.key;
-  //     allCars.push(snapObj);
-  //   });
-  // });
-
   const currentLoggedUserId = props.currentLoggedUser;
   const currentCarId = props.match.params.carId;
 
   const currentCar = allCars.find((obj) => {
-    // console.log(currentCarId);
     return obj.id === currentCarId;
   });
 
@@ -34,8 +23,6 @@ const CarDetails = (props) => {
     db.ref(`/cars/${currentCarId}`).update({
       likes: likes + 1,
     });
-
-    // props.history.push(`/cars/details/${currentCarId}`);
   };
 
   return (

@@ -1,6 +1,5 @@
 import Car from "../Car/Car";
 import { Component } from "react";
-// import { db } from "../../Utils/firebase";
 import getAll from "../Service/Service";
 
 class Categories extends Component {
@@ -14,19 +13,9 @@ class Categories extends Component {
   }
 
   componentDidMount() {
-    // db.ref("cars/").on("value", (snapshot) => {
-    //   let allCars = [];
-    //   snapshot.forEach((snap) => {
-    //     const snapObj = snap.val();
-    //     snapObj.id = snap.key;
-    //     allCars.push(snapObj);
-    //     this.allDataCars.push(snapObj);
-    //   });
-
     const allCarsFromData = getAll();
     this.allCars = allCarsFromData;
     this.setState({ cars: allCarsFromData });
-    // });
   }
 
   filter(e) {
